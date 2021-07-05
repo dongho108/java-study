@@ -6,6 +6,7 @@ import org.kohsuke.github.*;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 
 public class MakeDashBoard {
@@ -17,7 +18,7 @@ public class MakeDashBoard {
 //        GHRepository repository = gitHub.getRepository("whiteship/live-study");
 
         List<GHIssue> issues = repository.getIssues(GHIssueState.ALL);
-        HashMap<String, List<Integer>> dashboard = new HashMap<String, List<Integer>>();
+        HashMap<String, HashSet<Integer>> dashboard = new HashMap<String, HashSet<Integer>>();
 
         System.out.println(issues.size());
 
@@ -31,16 +32,17 @@ public class MakeDashBoard {
                 if (dashboard.containsKey(userName)) {
                     dashboard.get(userName).add(i);
                 } else {
-                    List<Integer> x = new ArrayList<>();
-                    x.add(i);
-                    dashboard.put(userName, x);
+
+                    //확인필요
+                    dashboard.put(userName, new HashSet<>(i));
                 }
             }
-
         }
 
         for (String key : dashboard.keySet()) {
-            List<Integer> values = dashboard.get(key);
+
+            //확인필요 get 맞는지
+            HashSet<Integer> values = dashboard.get(key);
             System.out.println(key);
             String join = StringUtils.join(values, ", ");
             System.out.println(join);
