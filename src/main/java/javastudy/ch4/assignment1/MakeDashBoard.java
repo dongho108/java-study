@@ -1,4 +1,4 @@
-package javastudy.ch4.assignment;
+package javastudy.ch4.assignment1;
 
 import org.apache.commons.lang3.StringUtils;
 import org.kohsuke.github.*;
