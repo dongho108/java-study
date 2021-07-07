@@ -1,26 +1,21 @@
 package javastudy.ch4.assignment2;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class ArrayQueueTest {
+class ListNodeQueueTest {
 
     @Test
-    @DisplayName("ArrayQueueTest")
-    public void test() throws Exception {
+    public void ListNodeQueueTest() throws Throwable {
         //given
-        ArrayQueue queue = new ArrayQueue();
+        ListNodeQueue queue = new ListNodeQueue();
 
         for (int i = 0; i < 15; i++) {
             queue.append(i);
         }
-
-//        queue.print();
-
         //when
+//        queue.print();
 
         //then
         for (int i = 0; i < 16; i++) {
@@ -31,8 +26,19 @@ class ArrayQueueTest {
             }
         }
 
-//        queue.print();
+        for (int i = 0; i < 15; i++) {
+            queue.append(i);
+        }
 
+        for (int i = 0; i < 16; i++) {
+            if (i == 15) {
+                assertEquals(-1, queue.pop());
+            } else {
+                assertEquals(i, queue.pop());
+            }
+        }
+
+//        queue.print();
     }
 
 }
