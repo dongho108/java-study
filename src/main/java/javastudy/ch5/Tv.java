@@ -8,7 +8,13 @@ public class Tv {
 
     // Tv의 기능(메서드)
 
-    public Tv() { }
+    public Tv() {
+        this("Black");
+    }
+
+    public Tv(String color) {
+        this.color = color;
+    }
 
     void power() { power = !power; } // TV를 켜거나 끄는 메서드
     int getChannel() { return channel; } // 현재 채널 반환
