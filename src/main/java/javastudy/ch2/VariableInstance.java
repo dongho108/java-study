@@ -1,4 +1,4 @@
-package javastudy;
+package javastudy.ch2;
 
 public class VariableInstance {
     public void declVariable(){

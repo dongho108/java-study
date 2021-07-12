@@ -1,4 +1,4 @@
-package javastudy.operator;
+package javastudy.ch3;
 
 public class ConditionOperator {
     public static void main(String[] args) {

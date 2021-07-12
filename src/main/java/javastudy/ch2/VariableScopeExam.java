@@ -1,4 +1,4 @@
-package javastudy;
+package javastudy.ch2;
 
 public class VariableScopeExam {
     int globalScope = 10; //global variable

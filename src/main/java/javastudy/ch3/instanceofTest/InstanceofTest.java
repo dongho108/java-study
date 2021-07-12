@@ -1,4 +1,4 @@
-package javastudy.instanceofTest;
+package javastudy.ch3.instanceofTest;
 
 class Parent{}
 class Child extends Parent{}
