@@ -1,9 +1,6 @@
 package javastudy.ch5.assignment;
 
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Stack;
+import java.util.*;
 
 public class BinaryTree {
 
@@ -51,20 +48,23 @@ public class BinaryTree {
 
     }
 
-    public void bfs(Node node) {
+    public void removeNode(Node node) {
+
+    }
+
+    public List<Integer> bfs(Node node) {
 
         if (node == null) {
             throw new NullPointerException("node is null");
         }
 
         Queue<Node> queue = new LinkedList<>();
-        String res = "";
-
+        List<Integer> result = new ArrayList<>();
         queue.add(node);
 
         while (queue.size() != 0) {
             Node currentNode = queue.poll();
-            res += (currentNode.getValue() + " -> ");
+            result.add(currentNode.getValue());
 
             if (currentNode.getLeft() != null) {
                 queue.add(currentNode.getLeft());
@@ -75,10 +75,10 @@ public class BinaryTree {
             }
         }
 
-        System.out.println(res + "end");
+        return result;
     }
 
-    public void dfs(Node node) {
+    public List<Integer> dfs(Node node) {
         if (node == null) {
             throw new NullPointerException("node is null");
         }
@@ -86,22 +86,23 @@ public class BinaryTree {
         Stack<Node> stack = new Stack<>();
         stack.push(node);
 
-        dfs(node, stack);
-        System.out.print("end");
+        List<Integer> result = new ArrayList<>();
+        dfs(node, stack, result);
+        return result;
     }
 
-    private void dfs(Node node, Stack<Node> stack) {
+    private void dfs(Node node, Stack<Node> stack, List<Integer> result) {
         Node currentNode = stack.pop();
-        System.out.print(node.getValue() + " -> ");
+        result.add(node.getValue());
 
         if (currentNode.getLeft() != null) {
             stack.push(currentNode.getLeft());
-            dfs(currentNode.getLeft(), stack);
+            dfs(currentNode.getLeft(), stack, result);
         }
 
         if (currentNode.getRight() != null) {
             stack.push(currentNode.getRight());
-            dfs(currentNode.getRight(), stack);
+            dfs(currentNode.getRight(), stack, result);
         }
     }
 }

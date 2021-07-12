@@ -1,13 +1,9 @@
 package javastudy.ch5.assignment;
 
-import java.util.LinkedList;
-import java.util.Queue;
-
 public class Node {
     private int value;
     private Node left;
     private Node right;
-    private boolean visited;
 
     public Node() {
         this.left = null;
@@ -19,18 +15,6 @@ public class Node {
         this.left = null;
         this.right = null;
     }
-
-    public boolean isVisited() {
-        return visited;
-    }
-
-    public void setVisited(boolean visited) {
-        this.visited = visited;
-    }
-
-    //    public int removeNode() {
-//
-//    }
 
     public int getValue() {
         return value;
